@@ -10,9 +10,8 @@ public class User {
     public User() {
     }
 
-    public User(String name, String rollNo, String phoneNo, String password) {
+    public User(String name, String phoneNo, String password) {
         Name = name;
-        RollNo = rollNo;
         PhoneNo = phoneNo;
         Password = password;
     }

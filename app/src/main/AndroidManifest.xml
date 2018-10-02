@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/startTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,6 +26,54 @@
         <activity
             android:name=".SignUpActivity"
             android:label="@string/sign_up" />
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/startTheme" />
+        <activity
+            android:name=".FeedbackActivity"
+            android:label="My Feedback"
+            android:parentActivityName="com.itskshitizsh.bhukhad.HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itskshitizsh.bhukhad.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Settings"
+            android:parentActivityName="com.itskshitizsh.bhukhad.HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itskshitizsh.bhukhad.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:label="User Profile"
+            android:parentActivityName="com.itskshitizsh.bhukhad.HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itskshitizsh.bhukhad.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".OrderActivity"
+            android:label="My Orders"
+            android:parentActivityName="com.itskshitizsh.bhukhad.HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itskshitizsh.bhukhad.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".CartActivity"
+            android:label="My Cart"
+            android:parentActivityName="com.itskshitizsh.bhukhad.HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itskshitizsh.bhukhad.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>

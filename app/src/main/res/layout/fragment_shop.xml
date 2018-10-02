@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShopFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/tomato_edited">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp" />
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view"
+                    android:layout_width="320dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/generalbg"
+                    card_view:cardCornerRadius="4dp"
+                    card_view:cardElevation="6dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bababg"
+                        android:gravity="center_vertical"
+                        android:padding="6dp"
+                        android:text="@string/baba_juice"
+                        android:textColor="#eeeeee"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                </android.support.v7.widget.CardView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp" />
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view_vinayak"
+
+                    android:layout_width="320dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/generalbg"
+                    card_view:cardCornerRadius="4dp"
+                    card_view:cardElevation="6dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/vinayakbg"
+                        android:gravity="center_vertical"
+                        android:padding="6dp"
+                        android:text="@string/vinayak_caters"
+                        android:textColor="#eeeeee"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                </android.support.v7.widget.CardView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp" />
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view_amul"
+
+                    android:layout_width="320dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/generalbg"
+                    card_view:cardCornerRadius="4dp"
+                    card_view:cardElevation="6dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/amulbg"
+                        android:gravity="center_vertical"
+                        android:padding="6dp"
+                        android:text="@string/amul_parlour"
+                        android:textColor="#eeeeee"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </android.support.v7.widget.CardView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp" />
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view_tfb"
+
+                    android:layout_width="320dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/generalbg"
+                    card_view:cardCornerRadius="4dp"
+                    card_view:cardElevation="6dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/tfbbg"
+                        android:gravity="center_vertical"
+                        android:padding="6dp"
+                        android:text="@string/the_food_barn"
+                        android:textColor="#eeeeee"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </android.support.v7.widget.CardView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp" />
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view_bazinga"
+
+                    android:layout_width="320dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/generalbg"
+                    card_view:cardCornerRadius="4dp"
+                    card_view:cardElevation="6dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bazingabg"
+                        android:gravity="center_vertical"
+                        android:padding="6dp"
+                        android:text="@string/bazzinga"
+                        android:textColor="#eeeeee"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </android.support.v7.widget.CardView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="16dp"
+            android:foregroundGravity="center"
+            android:src="@drawable/ic_shopping_cart_white"
+            app:elevation="4dp" />
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

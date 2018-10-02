@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/my_bg"
+    android:background="@drawable/main_bg"
     tools:context=".SignInActivity">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:id="@+id/editRollNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="RFID Number"
+            android:hint="@string/rfid_number"
             android:inputType="textNoSuggestions"
             android:text="16UCS095"
             android:textColor="@android:color/white"
@@ -35,7 +35,7 @@
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:text="16UCS095"
             android:textColor="@android:color/white"

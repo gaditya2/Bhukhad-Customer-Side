@@ -1,6 +1,7 @@
 package com.itskshitizsh.bhukhad;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -50,6 +51,8 @@ public class SignInActivity extends AppCompatActivity {
                             User currentUser = dataSnapshot.child(editUserId.getText().toString()).getValue(User.class);
                             if (currentUser.getPassword().equals(editUserPassword.getText().toString())) {
                                 Toast.makeText(SignInActivity.this, "Sign In Successfully !", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(SignInActivity.this, HomeActivity.class));
+                                finish();
                             } else {
                                 Toast.makeText(SignInActivity.this, " Sign In Failed !!\nCheck Credentials", Toast.LENGTH_SHORT).show();
                             }
