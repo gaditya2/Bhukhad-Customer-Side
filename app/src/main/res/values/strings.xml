@@ -26,4 +26,5 @@
     <string name="baba_juice">Baba Juice</string>
     <string name="rfid_number">RFID Number</string>
     <string name="password">Password</string>
+    <string name="stationary">Stationary</string>
 </resources>
