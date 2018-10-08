@@ -75,6 +75,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.itskshitizsh.bhukhad.HomeActivity" />
         </activity>
+        <activity android:name=".Bazzinga_category" />
+        <activity android:name=".Bazzinga" />
+
+
     </application>
 
 </manifest>

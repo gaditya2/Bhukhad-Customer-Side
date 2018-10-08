@@ -1,5 +1,6 @@
 package com.itskshitizsh.bhukhad;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -66,7 +67,10 @@ public class ShopFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_shop, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+    private void openBazinga(View v) {
+        startActivity(new Intent(getActivity().getApplicationContext(), Bazzinga_category.class));
+    }
+
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
