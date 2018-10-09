@@ -2,20 +2,22 @@ package com.itskshitizsh.bhukhad;
 
 public class Item {
     private String Name;
-    private String desc;
+    private String canteen_name;
     private Double price;
     private Double rate;
 
-    public Item(String name, Double price) {
+    public Item(String name, Double price , String canteen_name) {
         Name = name;
         this.price = price;
         this.rate = -1.0;
+        this.canteen_name=canteen_name;
     }
 
-    public Item(String name, Double price, Double rate) {
+    public Item(String name, Double price, Double rate,String canteen_name) {
         Name = name;
         this.price = price;
         this.rate = rate;
+        this.canteen_name=canteen_name;
     }
 
     public String getName() {
@@ -26,12 +28,9 @@ public class Item {
         Name = name;
     }
 
-    public String getDesc() {
-        return desc;
-    }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public String getCanteen_name() {
+        return canteen_name;
     }
 
     public Double getPrice() {

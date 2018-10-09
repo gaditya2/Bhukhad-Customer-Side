@@ -1,8 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".CartActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total:"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+        <View
+            android:layout_width="12dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123"
+            android:textSize="23sp"
+
+
+            />
+    </LinearLayout>
+    <ListView
+        android:id="@+id/cart_list"
+        android:layout_width="match_parent"
+        android:layout_height="450dp">
+
+    </ListView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"/>
+    <Button
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:paddingLeft="6dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bazingabg"
+        android:textStyle="bold"
+        android:textColor="#eeeeee"
+        android:text="Proceed to checkout"/>
+
+</LinearLayout>

@@ -20,6 +20,9 @@ public class SignInActivity extends AppCompatActivity {
 
     Button SignInButton;
     private EditText editUserId, editUserPassword;
+    public static String name;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class SignInActivity extends AppCompatActivity {
                             // Get user information
                             mDialog.dismiss();
                             User currentUser = dataSnapshot.child(editUserId.getText().toString()).getValue(User.class);
+                            name=currentUser.getName();
                             if (currentUser.getPassword().equals(editUserPassword.getText().toString())) {
                                 Toast.makeText(SignInActivity.this, "Sign In Successfully !", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(SignInActivity.this, HomeActivity.class));
@@ -70,4 +74,5 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
     }
+
 }
