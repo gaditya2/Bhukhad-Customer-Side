@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -44,6 +44,28 @@
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="72dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/viber" />
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="1dp" />
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/feedback" />
+                    </LinearLayout>
+
                 </android.support.v7.widget.CardView>
 
                 <View
@@ -71,6 +93,28 @@
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="72dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/viber" />
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="1dp" />
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/feedback" />
+                    </LinearLayout>
+
                 </android.support.v7.widget.CardView>
 
                 <View
@@ -97,6 +141,28 @@
                         android:textColor="#eeeeee"
                         android:textSize="24sp"
                         android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="72dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/viber" />
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="1dp" />
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/feedback" />
+                    </LinearLayout>
                 </android.support.v7.widget.CardView>
 
                 <View
@@ -123,6 +189,28 @@
                         android:textColor="#eeeeee"
                         android:textSize="24sp"
                         android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="72dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/viber" />
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="1dp" />
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/feedback" />
+                    </LinearLayout>
                 </android.support.v7.widget.CardView>
 
                 <View
@@ -131,11 +219,11 @@
 
                 <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/card_view_bazinga"
-                    android:onClick="openBazinga"
                     android:layout_width="320dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
                     android:background="@drawable/generalbg"
+                    android:onClick="openBazinga"
                     card_view:cardCornerRadius="4dp"
                     card_view:cardElevation="6dp">
 
@@ -149,6 +237,28 @@
                         android:textColor="#eeeeee"
                         android:textSize="24sp"
                         android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="72dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/viber" />
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="1dp" />
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/feedback" />
+                    </LinearLayout>
                 </android.support.v7.widget.CardView>
 
                 <View
@@ -176,6 +286,28 @@
                         android:textColor="#eeeeee"
                         android:textSize="24sp"
                         android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="72dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/viber" />
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="1dp" />
+
+                        <Button
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/feedback" />
+                    </LinearLayout>
                 </android.support.v7.widget.CardView>
 
                 <View
@@ -196,4 +328,5 @@
             android:src="@drawable/ic_shopping_cart_white"
             app:elevation="4dp" />
     </RelativeLayout>
+
 </android.support.design.widget.CoordinatorLayout>
