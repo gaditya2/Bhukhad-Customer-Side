@@ -1,47 +1,62 @@
 package com.itskshitizsh.bhukhad;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.util.Log;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
-import static com.itskshitizsh.bhukhad.CartActivity.cart_items;
+public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> {
+    private Context mContext;
+    private List<Item> itemsList;
 
-public class MenuAdapter extends ArrayAdapter {
-    Item item;
-
-    public MenuAdapter(@NonNull Context context, int resource, @NonNull List objects) {
-
-        super(context, 0, objects);
+    public MenuAdapter(Context mContext, List<Item> itemsList) {
+        this.mContext = mContext;
+        this.itemsList = itemsList;
     }
 
-    @NonNull
-    @SuppressLint("SetTextI18n")
-    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-         item= (Item) getItem(position);
+    @Override
+    public MenuAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_single, parent, false);
+        return new MenuAdapter.MyViewHolder(itemView);
+    }
 
+    @Override
+    public void onBindViewHolder(final MenuAdapter.MyViewHolder holder, final int position) {
+        Item item = itemsList.get(position);
+        //int quantity = Integer.parseInt(String.valueOf(item.getItemQty()));
+        holder.nameItem.setText(item.getName());
+        holder.priceItem.setText("\u20b9 " + String.valueOf(item.getPrice()));
+        holder.addcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "Button clicked for" + itemsList.get(position).getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_single, parent, false);
+    }
+
+    @Override
+    public int getItemCount() {
+        return itemsList.size();
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView nameItem, priceItem;
+        public Button addcart;
+
+        public MyViewHolder(View view) {
+            super(view);
+            nameItem = view.findViewById(R.id.nameText);
+            priceItem = view.findViewById(R.id.priceText);
+
+            addcart = view.findViewById(R.id.add_to_cart);
         }
-        TextView NameView = convertView.findViewById(R.id.nameText);
-        assert item != null;
-        NameView.setText(item.getName());
-
-        TextView NumberView = convertView.findViewById(R.id.priceText);
-        NumberView.setText(item.getPrice() + " ");
-
-
-        return convertView;
-
     }
+
 }
