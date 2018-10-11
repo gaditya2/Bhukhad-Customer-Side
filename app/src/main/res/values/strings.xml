@@ -42,4 +42,7 @@
     <string name="categories">Categories</string>
     <string name="rfid_number">RFID Number</string>
     <string name="password">Password</string>
+    <string name="send_mail">Send</string>
+    <string name="write_your_message">Write your message</string>
+    <string name="subject_of_mail">Subject of Mail</string>
 </resources>
