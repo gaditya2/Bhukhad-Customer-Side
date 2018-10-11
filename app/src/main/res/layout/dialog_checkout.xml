@@ -3,18 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <TextView
         android:id="@+id/bill"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp" />
 
     <Button
         android:id="@+id/paytm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/paytm"
+        android:padding="6dp"
         android:text="Pay With PayTm"
         android:textColor="#eee" />
 </LinearLayout>

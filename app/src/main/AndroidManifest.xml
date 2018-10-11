@@ -23,15 +23,30 @@
         </activity>
         <activity
             android:name=".SignInActivity"
-            android:label="@string/sign_in" />
+            android:label="@string/sign_in"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itskshitizsh.bhukhad.MainActivity" />
+        </activity>
         <activity
             android:name=".SignUpActivity"
-            android:label="@string/sign_up" />
+            android:label="@string/sign_up"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itskshitizsh.bhukhad.MainActivity" />
+        </activity>
         <activity
             android:name=".HomeActivity"
             android:theme="@style/startTheme" />
         <activity
             android:name=".FeedbackActivity"
+            android:screenOrientation="portrait"
             android:label="My Feedback"
             android:parentActivityName="com.itskshitizsh.bhukhad.HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -41,6 +56,7 @@
         </activity>
         <activity
             android:name=".SettingsActivity"
+            android:screenOrientation="portrait"
             android:label="Settings"
             android:parentActivityName="com.itskshitizsh.bhukhad.HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -50,6 +66,7 @@
         </activity>
         <activity
             android:name=".ProfileActivity"
+            android:screenOrientation="portrait"
             android:label="User Profile"
             android:parentActivityName="com.itskshitizsh.bhukhad.HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -68,6 +85,7 @@
         </activity>
         <activity
             android:name=".CartActivity"
+            android:screenOrientation="portrait"
             android:label="My Cart"
             android:parentActivityName="com.itskshitizsh.bhukhad.HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -75,10 +93,23 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.itskshitizsh.bhukhad.HomeActivity" />
         </activity>
-        <activity android:name=".Bazzinga_category" />
-        <activity android:name=".Bazzinga" />
-
-
+        <activity
+            android:name=".Bazzinga_category"
+            android:parentActivityName=".HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itskshitizsh.bhukhad.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".Bazzinga"
+            android:parentActivityName=".Bazzinga_category"
+            android:screenOrientation="portrait">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itskshitizsh.bhukhad.Bazzinga_category" />
+        </activity>
     </application>
 
 </manifest>

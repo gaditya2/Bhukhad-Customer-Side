@@ -29,4 +29,5 @@
     <string name="rfid_number">RFID Number</string>
     <string name="password">Password</string>
     <string name="stationary">Stationary</string>
+    <string name="add_to_cart">Add to Cart</string>
 </resources>
