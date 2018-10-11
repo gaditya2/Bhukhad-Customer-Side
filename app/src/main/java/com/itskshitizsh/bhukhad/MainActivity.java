@@ -1,7 +1,10 @@
 package com.itskshitizsh.bhukhad;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button signUpButton;
     Button signInButton;
+
+    private boolean isNetworkConnected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +50,25 @@ public class MainActivity extends AppCompatActivity {
         });
         String user = Paper.book().read("name");
         String password = Paper.book().read("password");
-        if (user != null && password != null) {
-            if (!user.isEmpty() && !password.isEmpty()) {
-                directLogin(user, password);
+
+        try {
+            ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (conMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED
+                    || conMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+
+                isNetworkConnected = true;
+
+            } else {
+                Toast.makeText(this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        if (isNetworkConnected) {
+            if (user != null && password != null) {
+                if (!user.isEmpty() && !password.isEmpty()) {
+                    directLogin(user, password);
+                }
             }
         }
     }
@@ -78,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "User not exist inside Database", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }

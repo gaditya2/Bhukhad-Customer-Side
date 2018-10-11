@@ -1,7 +1,10 @@
 package com.itskshitizsh.bhukhad;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +30,7 @@ public class SignInActivity extends AppCompatActivity {
     public static String id;
     CheckBox checkBox;
 
-
+    private boolean isNetworkConnected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,52 +40,69 @@ public class SignInActivity extends AppCompatActivity {
         editUserId = findViewById(R.id.editRollNo);
         editUserPassword = findViewById(R.id.editPassword);
         checkBox = findViewById(R.id.rememberMeCheckBox);
-        Paper.init(this);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference userTable = database.getReference("User");
-        if (checkBox.isChecked()) {
-            Paper.book().write("name", editUserId.getText().toString());
-            Paper.book().write("password", editUserPassword.getText().toString());
-        }
-        SignInButton = findViewById(R.id.SignInButton);
-        SignInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                final ProgressDialog mDialog = new ProgressDialog(SignInActivity.this);
-                mDialog.setMessage("Working...\nPlease Wait !");
-                mDialog.show();
+        try {
+            ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (conMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED
+                    || conMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
-                userTable.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        // User exists or not?
-                        if (dataSnapshot.child(editUserId.getText().toString()).exists()) {
-                            // Get user information
-                            mDialog.dismiss();
-                            User currentUser = dataSnapshot.child(editUserId.getText().toString()).getValue(User.class);
-                            name=currentUser.getName();
-                            id = currentUser.getRollNo();
-                            if (currentUser.getPassword().equals(editUserPassword.getText().toString())) {
-                                Toast.makeText(SignInActivity.this, "Sign In Successfully !", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(SignInActivity.this, HomeActivity.class).putExtra("name", currentUser.getName()).putExtra("id", currentUser.getRollNo()));
-                                finish();
-                            } else {
-                                Toast.makeText(SignInActivity.this, " Sign In Failed !!\nCheck Credentials", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            mDialog.dismiss();
-                            Toast.makeText(getApplicationContext(), "User not exist inside Database", Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                isNetworkConnected = true;
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+            } else {
+                Toast.makeText(this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
             }
-        });
-    }
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        if (isNetworkConnected) {
+            Paper.init(this);
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            final DatabaseReference userTable = database.getReference("User");
+            if (checkBox.isChecked()) {
+                Paper.book().write("name", editUserId.getText().toString());
+                Paper.book().write("password", editUserPassword.getText().toString());
+            }
+            SignInButton = findViewById(R.id.SignInButton);
+            SignInButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
+                    final ProgressDialog mDialog = new ProgressDialog(SignInActivity.this);
+                    mDialog.setMessage("Working...\nPlease Wait !");
+                    mDialog.show();
+
+                    userTable.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            // User exists or not?
+                            if (dataSnapshot.child(editUserId.getText().toString()).exists()) {
+                                // Get user information
+                                mDialog.dismiss();
+                                User currentUser = dataSnapshot.child(editUserId.getText().toString()).getValue(User.class);
+                                name = currentUser.getName();
+                                id = currentUser.getRollNo();
+                                if (currentUser.getPassword().equals(editUserPassword.getText().toString())) {
+                                    Toast.makeText(SignInActivity.this, "Sign In Successfully !", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(SignInActivity.this, HomeActivity.class).putExtra("name", currentUser.getName()).putExtra("id", currentUser.getRollNo()));
+                                    finish();
+                                } else {
+                                    Toast.makeText(SignInActivity.this, " Sign In Failed !!\nCheck Credentials", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                mDialog.dismiss();
+                                Toast.makeText(getApplicationContext(), "User not exist inside Database", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+            });
+        } else {
+            Toast.makeText(getApplicationContext(), "Try to connect with Internet and Restart the App.", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
