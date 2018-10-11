@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/rfid_number"
             android:inputType="textNoSuggestions"
-            android:text="16UCS095"
+            android:text="@string/_16ucs095"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:textSize="35sp"
@@ -37,7 +37,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:text="16UCS095"
+            android:text="@string/_16ucs095"
+
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:textSize="35sp"
@@ -46,6 +47,15 @@
             app:met_maxCharacters="15"
             app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="true" />
+
+        <CheckBox
+            android:id="@+id/rememberMeCheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/remember_me"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <Button

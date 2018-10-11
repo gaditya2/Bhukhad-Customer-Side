@@ -1,12 +1,11 @@
 package com.itskshitizsh.bhukhad;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,72 +13,89 @@ import android.widget.Toast;
 import java.util.List;
 
 
-public class CartAdapter extends ArrayAdapter {
-    Purchased pur_item;
-    TextView quantity;
-    Button inc_btn;
-    Button dec_btn;
-    Button rem_btn;
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> {
 
-    public CartAdapter(@NonNull Context context, int resource, @NonNull List objects) {
 
-        super(context, 0, objects);
+    private Context mContext;
+    private List<Purchased> itemsList;
+
+    public CartAdapter(Context mContext, List<Purchased> itemsList) {
+        this.mContext = mContext;
+        this.itemsList = itemsList;
     }
 
-    @NonNull
-    @SuppressLint("SetTextI18n")
-    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        pur_item= (Purchased) getItem(position);
+    @Override
+    public CartAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_single, parent, false);
+        return new CartAdapter.MyViewHolder(itemView);
+    }
 
-
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.cart_single, parent, false);
-        }
-        TextView NameView = convertView.findViewById(R.id.nameCartText);
-        assert pur_item != null;
-        NameView.setText(pur_item.getItem().getName());
-
-        TextView NumberView = convertView.findViewById(R.id.priceCartText);
-        NumberView.setText(pur_item.getTotal_price() + " ");
-
-        TextView canteen=convertView.findViewById(R.id.canteenNameCart);
-        canteen.setText(pur_item.getItem().getCanteen_name()+" ");
-        pur_item = CartActivity.cart_items.get(position);
-        inc_btn = convertView.findViewById(R.id.increment);
-        dec_btn = convertView.findViewById(R.id.decrement);
-        rem_btn = convertView.findViewById(R.id.remove);
-
-        quantity = convertView.findViewById(R.id.quantity_text_view);
-        inc_btn.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, int i) {
+        final Purchased pur_item = itemsList.get(i);
+        holder.name_txt.setText(pur_item.getItem().getName());
+        holder.total.setText(pur_item.getTotal_price() + "");
+        holder.inc_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int new_quan = pur_item.getQuantity() + 1;
                 if (new_quan > 50) {
-                    Toast.makeText(getContext(), "You can not order more than 50", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "You can not order more than 50", Toast.LENGTH_SHORT).show();
                 } else {
                     pur_item.setQuantity(new_quan);
-                    quantity.setText(new_quan + " ");
+                    holder.quantity.setText(new_quan + " ");
+                    holder.total.setText("\u20b9 " + pur_item.getTotal_price());
+
+
                 }
             }
+
         });
-        dec_btn.setOnClickListener(new View.OnClickListener() {
+        holder.dec_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int new_quan = pur_item.getQuantity() - 1;
                 if (new_quan <= 0) {
-                    dec_btn.setVisibility(View.INVISIBLE);
-                    rem_btn.setVisibility(View.VISIBLE);
+                    holder.dec_btn.setVisibility(View.INVISIBLE);
+                    holder.rem_btn.setVisibility(View.VISIBLE);
                 } else {
                     pur_item.setQuantity(new_quan);
-                    quantity.setText(new_quan + "");
+                    holder.quantity.setText(new_quan + "");
+                    holder.total.setText("\u20b9 " + pur_item.getTotal_price());
 
                 }
             }
         });
+        holder.rem_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        return convertView;
-
+            }
+        });
 
 
     }
+
+    @Override
+    public int getItemCount() {
+        return itemsList.size();
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView quantity, name_txt, total;
+        public Button inc_btn;
+        public Button dec_btn;
+        public Button rem_btn;
+
+        public MyViewHolder(View view) {
+            super(view);
+            name_txt = view.findViewById(R.id.nameCartText);
+            total = view.findViewById(R.id.priceCartText);
+            quantity = view.findViewById(R.id.quantity_text_view);
+            inc_btn = view.findViewById(R.id.increment);
+            rem_btn = view.findViewById(R.id.remove);
+            dec_btn = view.findViewById(R.id.decrement);
+        }
+    }
+
 }

@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,11 +17,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import io.paperdb.Paper;
+
 public class SignInActivity extends AppCompatActivity {
 
     Button SignInButton;
     private EditText editUserId, editUserPassword;
     public static String name;
+    public static String id;
+    CheckBox checkBox;
 
 
 
@@ -31,10 +36,14 @@ public class SignInActivity extends AppCompatActivity {
 
         editUserId = findViewById(R.id.editRollNo);
         editUserPassword = findViewById(R.id.editPassword);
-
+        checkBox = findViewById(R.id.rememberMeCheckBox);
+        Paper.init(this);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference userTable = database.getReference("User");
-
+        if (checkBox.isChecked()) {
+            Paper.book().write("name", editUserId.getText().toString());
+            Paper.book().write("password", editUserPassword.getText().toString());
+        }
         SignInButton = findViewById(R.id.SignInButton);
         SignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,9 +62,10 @@ public class SignInActivity extends AppCompatActivity {
                             mDialog.dismiss();
                             User currentUser = dataSnapshot.child(editUserId.getText().toString()).getValue(User.class);
                             name=currentUser.getName();
+                            id = currentUser.getRollNo();
                             if (currentUser.getPassword().equals(editUserPassword.getText().toString())) {
                                 Toast.makeText(SignInActivity.this, "Sign In Successfully !", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(SignInActivity.this, HomeActivity.class));
+                                startActivity(new Intent(SignInActivity.this, HomeActivity.class).putExtra("name", currentUser.getName()).putExtra("id", currentUser.getRollNo()));
                                 finish();
                             } else {
                                 Toast.makeText(SignInActivity.this, " Sign In Failed !!\nCheck Credentials", Toast.LENGTH_SHORT).show();

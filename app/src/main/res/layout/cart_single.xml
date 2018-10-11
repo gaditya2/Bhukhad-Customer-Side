@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/generalbg"
     android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/generalbgg"
+        android:orientation="vertical">
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
+
     <ImageView
         android:layout_width="90dp"
         android:layout_height="100dp"
@@ -16,9 +27,11 @@
         android:layout_weight="1"
         android:padding="5dp"
         android:src="@drawable/iconpurp" />
+
     <View
         android:layout_width="14dp"
         android:layout_height="1dp"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,6 +57,7 @@
             android:paddingTop="5dp"
             android:text="Price : (x rs)"
             android:textAlignment="textStart" />
+
         <TextView
             android:layout_width="wrap_content"
             android:id="@+id/canteenNameCart"
@@ -53,49 +67,52 @@
             android:text="Canteen Name"/>
     </LinearLayout>
 </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
 
-        android:background="@color/colorPrimaryDark"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="2dp"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/increment"
-            android:layout_width="34dp"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="#fff"
-            android:layout_height="34dp"
-            android:text="+" />
-
-        <TextView
-            android:id="@+id/quantity_text_view"
-            android:layout_width="34dp"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/decrement"
-            android:textColor="#fff"
-            android:background="@color/colorPrimaryDark"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:text="-" />
-        <Button
-            android:id="@+id/remove"
-            android:textColor="#fff"
-            android:background="@color/colorPrimaryDark"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:text="Remove" />
+
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="2dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/increment"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="+"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/quantity_text_view"
+                android:layout_width="34dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/decrement"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="-"
+                android:textColor="#fff" />
+
+            <Button
+                android:id="@+id/remove"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="Remove"
+                android:textColor="#fff"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
 
     </LinearLayout>
 

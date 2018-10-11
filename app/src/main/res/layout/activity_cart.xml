@@ -22,29 +22,38 @@
             android:layout_width="12dp"
             android:layout_height="1dp"/>
         <TextView
+            android:id="@+id/grandTotal"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="123"
+            android:text=""
             android:textSize="23sp"
 
 
             />
     </LinearLayout>
-    <ListView
-        android:id="@+id/cart_list"
+
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="450dp">
 
-    </ListView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/cart_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="12dp"/>
     <Button
         android:layout_gravity="center"
         android:layout_width="match_parent"
+        android:id="@+id/checkout"
         android:paddingLeft="6dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bazingabg"
+        android:background="@drawable/bababg"
         android:textStyle="bold"
         android:textColor="#eeeeee"
         android:text="Proceed to checkout"/>
