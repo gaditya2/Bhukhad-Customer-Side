@@ -61,26 +61,44 @@ public class SignUpActivity extends AppCompatActivity {
                     mDialog.setMessage("Registering...\nTrying to connect with server");
                     mDialog.show();
 
-                    userTable.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.child(editRollNo.getText().toString()).exists()) {
-                                mDialog.dismiss();
-                                Toast.makeText(SignUpActivity.this, "Phone Number Already Registered!", Toast.LENGTH_SHORT).show();
-                            } else {
-                                mDialog.dismiss();
-                                User currentUser = new User(editName.getText().toString(), editPhoneNo.getText().toString(), editPassword.getText().toString());
-                                userTable.child(editRollNo.getText().toString()).setValue(currentUser);
-                                Toast.makeText(SignUpActivity.this, "Sign Up Successfully!", Toast.LENGTH_SHORT).show();
-                                finish();
+                    if (editName.getText().toString().isEmpty()) {
+                        editName.setError("Required");
+                        editName.requestFocus();
+                    }
+                    if (editPassword.getText().toString().isEmpty()) {
+                        editPassword.setError("Required");
+                        editPassword.requestFocus();
+                    }
+                    if (editPhoneNo.getText().toString().isEmpty()) {
+                        editPhoneNo.setError("Required");
+                        editPhoneNo.requestFocus();
+                    }
+                    if (editRollNo.getText().toString().isEmpty()) {
+                        editRollNo.setError("Required");
+                        editRollNo.requestFocus();
+                    }
+                    if ((!editName.getText().toString().isEmpty()) && (!editPassword.getText().toString().isEmpty()) && (!editPhoneNo.getText().toString().isEmpty()) && (!editRollNo.getText().toString().isEmpty())) {
+                        userTable.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                if (dataSnapshot.child(editRollNo.getText().toString()).exists()) {
+                                    mDialog.dismiss();
+                                    Toast.makeText(SignUpActivity.this, "Phone Number Already Registered!", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    mDialog.dismiss();
+                                    User currentUser = new User(editName.getText().toString(), editPhoneNo.getText().toString(), editPassword.getText().toString());
+                                    userTable.child(editRollNo.getText().toString()).setValue(currentUser);
+                                    Toast.makeText(SignUpActivity.this, "Sign Up Successfully!", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
                             }
-                        }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                        }
-                    });
+                            }
+                        });
+                    }
                 }
             });
         } else {

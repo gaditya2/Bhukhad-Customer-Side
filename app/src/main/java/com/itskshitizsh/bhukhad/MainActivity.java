@@ -47,12 +47,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, SignUpActivity.class));
-                finish();
             }
         });
-        String user = Paper.book().read("name");
-        String password = Paper.book().read("password");
-
         try {
             ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             if (conMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED
@@ -66,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+
+        String user = Paper.book().read("name");
+        String password = Paper.book().read("password");
+
         if (isNetworkConnected) {
             if (user != null && password != null) {
                 if (!user.isEmpty() && !password.isEmpty()) {
@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "User not exist inside Database", Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }

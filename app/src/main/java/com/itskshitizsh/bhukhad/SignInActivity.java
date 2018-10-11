@@ -54,51 +54,65 @@ public class SignInActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+        Paper.init(this);
         if (isNetworkConnected) {
-            Paper.init(this);
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             final DatabaseReference userTable = database.getReference("User");
-            if (checkBox.isChecked()) {
-                Paper.book().write("name", editUserId.getText().toString());
-                Paper.book().write("password", editUserPassword.getText().toString());
-            }
+
             SignInButton = findViewById(R.id.SignInButton);
             SignInButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    final ProgressDialog mDialog = new ProgressDialog(SignInActivity.this);
-                    mDialog.setMessage("Working...\nPlease Wait !");
-                    mDialog.show();
 
-                    userTable.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            // User exists or not?
-                            if (dataSnapshot.child(editUserId.getText().toString()).exists()) {
-                                // Get user information
-                                mDialog.dismiss();
-                                User currentUser = dataSnapshot.child(editUserId.getText().toString()).getValue(User.class);
-                                name = currentUser.getName();
-                                id = currentUser.getRollNo();
-                                if (currentUser.getPassword().equals(editUserPassword.getText().toString())) {
-                                    Toast.makeText(SignInActivity.this, "Sign In Successfully !", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(SignInActivity.this, HomeActivity.class).putExtra("name", currentUser.getName()).putExtra("id", currentUser.getRollNo()));
-                                    finish();
+                    if (editUserId.getText().toString().isEmpty()) {
+                        editUserId.setError("Required");
+                        editUserId.requestFocus();
+                    }
+                    if (editUserPassword.getText().toString().isEmpty()) {
+                        editUserPassword.setError("Required");
+                        editUserPassword.requestFocus();
+                    }
+
+                    if (!editUserId.getText().toString().isEmpty() && !editUserPassword.getText().toString().isEmpty()) {
+
+                        if (checkBox.isChecked()) {
+                            Paper.book().write("name", editUserId.getText().toString());
+                            Paper.book().write("password", editUserPassword.getText().toString());
+                        }
+                        final ProgressDialog mDialog = new ProgressDialog(SignInActivity.this);
+                        mDialog.setMessage("Working...\nPlease Wait !");
+                        mDialog.show();
+
+                        userTable.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                // User exists or not?
+                                if (dataSnapshot.child(editUserId.getText().toString()).exists()) {
+                                    // Get user information
+                                    mDialog.dismiss();
+                                    User currentUser = dataSnapshot.child(editUserId.getText().toString()).getValue(User.class);
+                                    name = currentUser.getName();
+                                    id = currentUser.getRollNo();
+                                    if (currentUser.getPassword().equals(editUserPassword.getText().toString())) {
+                                        Toast.makeText(SignInActivity.this, "Sign In Successfully !", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(SignInActivity.this, HomeActivity.class).putExtra("name", currentUser.getName()).putExtra("id", currentUser.getRollNo()));
+                                        finish();
+                                    } else {
+                                        Toast.makeText(SignInActivity.this, " Sign In Failed !!\nCheck Credentials", Toast.LENGTH_SHORT).show();
+                                    }
                                 } else {
-                                    Toast.makeText(SignInActivity.this, " Sign In Failed !!\nCheck Credentials", Toast.LENGTH_SHORT).show();
+                                    mDialog.dismiss();
+                                    Toast.makeText(getApplicationContext(), "User not exist inside Database", Toast.LENGTH_SHORT).show();
                                 }
-                            } else {
-                                mDialog.dismiss();
-                                Toast.makeText(getApplicationContext(), "User not exist inside Database", Toast.LENGTH_SHORT).show();
                             }
-                        }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                        }
-                    });
+                            }
+                        });
+                    }
                 }
             });
         } else {
