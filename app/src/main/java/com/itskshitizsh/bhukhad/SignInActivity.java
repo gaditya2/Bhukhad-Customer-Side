@@ -29,6 +29,9 @@ public class SignInActivity extends AppCompatActivity {
     public static String name;
     public static String id;
     CheckBox checkBox;
+    public static User currentUser;
+
+
 
     private boolean isNetworkConnected = false;
 
@@ -91,7 +94,7 @@ public class SignInActivity extends AppCompatActivity {
                                 if (dataSnapshot.child(editUserId.getText().toString()).exists()) {
                                     // Get user information
                                     mDialog.dismiss();
-                                    User currentUser = dataSnapshot.child(editUserId.getText().toString()).getValue(User.class);
+                                    currentUser = dataSnapshot.child(editUserId.getText().toString()).getValue(User.class);
                                     name = currentUser.getName();
                                     id = currentUser.getRollNo();
                                     if (currentUser.getPassword().equals(editUserPassword.getText().toString())) {

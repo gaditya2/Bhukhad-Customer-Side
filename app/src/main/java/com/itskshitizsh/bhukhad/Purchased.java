@@ -4,7 +4,7 @@ public class Purchased {
     Item item;
     int quantity;
     double total_price;
-    String canteen_name;
+    int canteen_id;
 
     public Item getItem() {
         return item;
@@ -13,10 +13,15 @@ public class Purchased {
     public Purchased(Item item, int quantity) {
         this.item = item;
         this.quantity = quantity;
+        this.canteen_id = item.getCanteen_id();
     }
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public int getCanteen_id() {
+        return canteen_id;
     }
 
     public double getTotal_price() {

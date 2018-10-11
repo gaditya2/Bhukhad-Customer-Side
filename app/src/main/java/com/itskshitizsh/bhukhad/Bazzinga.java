@@ -11,13 +11,13 @@ public class Bazzinga extends AppCompatActivity {
     private RecyclerView listView;
     private MenuAdapter menuAdapter;
     Item[] items_bazzinga_smoothies = {
-            new Item("Cupcake", 15.0,"Bazzinga"),
-            new Item("Donut", 16.0,"Bazzinga"),
-            new Item("Eclair", 20.0,"Bazzinga"),
-            new Item("Froyo", 30.0,"Bazzinga"),
-            new Item("GingerBread", 40.0,"Bazzinga"),
-            new Item("Honeycomb", 30.0,"Bazzinga"),
-            new Item("Ice Cream Sandwich", 20.0,"Bazzinga")
+            new Item("Cupcake", 15.0, 0),
+            new Item("Donut", 16.0, 0),
+            new Item("Eclair", 20.0, 0),
+            new Item("Froyo", 30.0, 0),
+            new Item("GingerBread", 40.0, 0),
+            new Item("Honeycomb", 30.0, 0),
+            new Item("Ice Cream Sandwich", 20.0, 0)
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {

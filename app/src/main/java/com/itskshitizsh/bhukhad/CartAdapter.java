@@ -35,6 +35,26 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         final Purchased pur_item = itemsList.get(i);
         holder.name_txt.setText(pur_item.getItem().getName());
         holder.total.setText(pur_item.getTotal_price() + "");
+        int cant_id = pur_item.getCanteen_id();
+        String Canteen = "";
+        switch (cant_id) {
+            case 0:
+                Canteen = "Bazzinga";
+                break;
+            case 1:
+                Canteen = "amul";
+                break;
+            case 2:
+                Canteen = "the food barn";
+                break;
+            case 3:
+                Canteen = "Vinayak Caters";
+                break;
+            case 4:
+                Canteen = "Baba";
+                break;
+        }
+        holder.CanteenName.setText(Canteen + "");
         holder.inc_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,13 +102,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView quantity, name_txt, total;
+        public TextView quantity, name_txt, total, CanteenName;
         public Button inc_btn;
         public Button dec_btn;
         public Button rem_btn;
 
         public MyViewHolder(View view) {
             super(view);
+            CanteenName = view.findViewById(R.id.canteenNameCart);
             name_txt = view.findViewById(R.id.nameCartText);
             total = view.findViewById(R.id.priceCartText);
             quantity = view.findViewById(R.id.quantity_text_view);

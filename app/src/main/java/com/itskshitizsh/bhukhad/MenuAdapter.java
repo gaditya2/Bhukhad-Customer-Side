@@ -35,7 +35,24 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> 
         holder.addcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CartActivity.cart_items.add(new Purchased(item, 1));
+                switch (item.getCanteen_id()) {
+                    case 0:
+                        CartActivity.cart_items_bazzinga.add(new Purchased(item, 1));
+                        break;
+                    case 1:
+                        CartActivity.cart_items_amul.add(new Purchased(item, 1));
+                        break;
+                    case 2:
+                        CartActivity.cart_items_tfb.add(new Purchased(item, 1));
+                        break;
+                    case 3:
+                        CartActivity.cart_items_vinayak.add(new Purchased(item, 1));
+                        break;
+                    case 4:
+                        CartActivity.cart_items_baba.add(new Purchased(item, 1));
+                        break;
+
+                }
                 holder.addcart.setVisibility(View.INVISIBLE);
                 holder.addcart.setActivated(false);
                 Toast.makeText(mContext, itemsList.get(position).getName() + "added to cart", Toast.LENGTH_SHORT).show();

@@ -24,11 +24,14 @@ public class CategoryAdapter extends ArrayAdapter {
 
 
         TextView NameView = convertView.findViewById(R.id.nameCategory);
-        assert category != null;
-        NameView.setText(category.Name);
+        if (category != null) {
+            NameView.setText(category.Name);
+        }
 
         ImageView imageView = convertView.findViewById(R.id.imageCategory);
-        imageView.setImageResource(category.image);
+        if (category != null) {
+            imageView.setImageResource(category.image);
+        }
         return convertView;
     }
 }
