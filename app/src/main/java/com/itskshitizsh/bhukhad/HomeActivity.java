@@ -65,7 +65,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         cardViewBabaJuice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //    startActivity(new Intent(HomeActivity.this,Bazzinga_category.class));
+                startActivity(new Intent(HomeActivity.this, BabaCateory.class));
             }
         });
 
@@ -137,9 +137,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_share:
                 Toast.makeText(getApplicationContext(), "Share", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.nav_send:
-                Toast.makeText(getApplicationContext(), "Send", Toast.LENGTH_SHORT).show();
-                break;
+
             case R.id.nav_contact_us:
                 Toast.makeText(getApplicationContext(), "Contact Us", Toast.LENGTH_SHORT).show();
                 break;
