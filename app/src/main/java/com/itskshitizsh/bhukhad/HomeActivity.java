@@ -166,7 +166,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         } else {
             if (doubleBackToExitPressedOnce) {
                 super.onBackPressed();
-                System.exit(0);
                 return;
             }
             this.doubleBackToExitPressedOnce = true;

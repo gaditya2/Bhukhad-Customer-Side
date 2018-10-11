@@ -18,6 +18,6 @@
         android:layout_height="wrap_content"
         android:background="@drawable/paytm"
         android:padding="6dp"
-        android:text="Pay With PayTm"
+        android:text="@string/pay_with_paytm"
         android:textColor="#eee" />
 </LinearLayout>
