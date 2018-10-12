@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import java.util.Arrays;
 
@@ -292,8 +293,7 @@ public class Bazzinga extends AppCompatActivity {
                 listView.setAdapter(menuAdapter);
                 break;
             default:
-                menuAdapter = new MenuAdapter(this, Arrays.asList(items_bazzinga_smoothies));
-                listView.setAdapter(menuAdapter);
+                Toast.makeText(getApplicationContext(), "Not in List", Toast.LENGTH_SHORT).show();
                 break;
         }
 

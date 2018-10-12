@@ -26,8 +26,8 @@ public class SignInActivity extends AppCompatActivity {
 
     Button SignInButton;
     private EditText editUserId, editUserPassword;
-    public static String name;
-    public static String id;
+    String name;
+    String id;
     CheckBox checkBox;
     public static User currentUser;
 

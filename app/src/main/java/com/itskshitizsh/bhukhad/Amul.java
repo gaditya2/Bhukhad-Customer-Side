@@ -11,8 +11,6 @@ public class Amul extends AppCompatActivity {
     Item[] items_amul_parlour_items =
 
             {
-
-
                     new Item("Kadi Kachori(1pcs)", 15.0, 1
                     ),
                     new Item("Poha(1plate)", 20.0, 1

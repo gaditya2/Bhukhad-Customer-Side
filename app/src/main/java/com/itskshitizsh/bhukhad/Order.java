@@ -24,6 +24,17 @@ public class Order {
         this.purchasedItems = purchasedItems;
     }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "purchasedItems=" + purchasedItems +
+                ", OrderId='" + OrderId + '\'' +
+                ", CanteenName='" + CanteenName + '\'' +
+                ", user=" + user +
+                ", dateTime='" + dateTime + '\'' +
+                '}';
+    }
+
     public String getOrderId() {
         return OrderId;
     }

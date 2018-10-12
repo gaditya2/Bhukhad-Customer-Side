@@ -21,7 +21,7 @@
                 android:layout_height="24dp" />
 
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/card_view_baba"
+
                 android:layout_width="320dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
@@ -30,6 +30,7 @@
                 card_view:cardElevation="6dp">
 
                 <TextView
+                    android:id="@+id/card_view_baba"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:background="@drawable/bgbg"
@@ -48,6 +49,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/babaCall"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/call" />
@@ -57,6 +59,7 @@
                         android:layout_height="1dp" />
 
                     <Button
+                        android:id="@+id/babaFeedback"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/feedback" />
@@ -70,7 +73,7 @@
 
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view_vinayak"
-
+                android:visibility="gone"
                 android:layout_width="320dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
@@ -115,10 +118,10 @@
 
             <View
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="24dp" />
 
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/card_view_amul"
 
                 android:layout_width="320dp"
                 android:layout_height="150dp"
@@ -128,9 +131,10 @@
                 card_view:cardElevation="6dp">
 
                 <TextView
+                    android:id="@+id/card_view_amul"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:background="@drawable/bgbg"
+                    android:background="@drawable/bababg"
                     android:gravity="center_vertical"
                     android:padding="6dp"
                     android:text="@string/amul_parlour"
@@ -146,6 +150,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/amulCall"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/call" />
@@ -155,6 +160,7 @@
                         android:layout_height="1dp" />
 
                     <Button
+                        android:id="@+id/amulFeedback"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/feedback" />
@@ -163,11 +169,12 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="24dp" />
+                android:layout_height="24dp"
+                android:visibility="gone" />
 
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view_tfb"
-
+                android:visibility="gone"
                 android:layout_width="320dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
@@ -214,7 +221,7 @@
                 android:layout_height="24dp" />
 
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/card_view_bazinga"
+
                 android:layout_width="320dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
@@ -223,6 +230,7 @@
                 card_view:cardElevation="6dp">
 
                 <TextView
+                    android:id="@+id/card_view_bazinga"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:background="@drawable/bgbg"
@@ -241,6 +249,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/bazzingaCall"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/call" />
@@ -250,6 +259,7 @@
                         android:layout_height="1dp" />
 
                     <Button
+                        android:id="@+id/bazzingaFeedback"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/feedback" />
@@ -263,7 +273,7 @@
 
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view_stationary"
-
+                android:visibility="gone"
                 android:layout_width="320dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"

@@ -119,9 +119,33 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.itskshitizsh.bhukhad.Bazzinga_category" />
         </activity>
-        <activity android:name=".Baba" />
-        <activity android:name=".BabaCateory" />
-        <activity android:name=".Amul"></activity>
+        <activity
+            android:name=".Baba"
+            android:parentActivityName=".BabaCateory">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itskshitizsh.bhukhad.BabaCateory" />
+        </activity>
+        <activity
+            android:name=".BabaCateory"
+            android:parentActivityName=".HomeActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itskshitizsh.bhukhad.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".Amul"
+            android:parentActivityName=".HomeActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.itskshitizsh.bhukhad.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>

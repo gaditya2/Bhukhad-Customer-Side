@@ -45,4 +45,8 @@
     <string name="send_mail">Send</string>
     <string name="write_your_message">Write your message</string>
     <string name="subject_of_mail">Subject of Mail</string>
+    <string name="_0_rs">0 Rs</string>
+    <string name="food_barn">Food Barn</string>
+    <string name="baba_juice_corner">Baba Juice Corner</string>
+    <string name="amul_palour">Amul Palour</string>
 </resources>
