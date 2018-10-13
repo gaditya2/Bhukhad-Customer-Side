@@ -36,6 +36,19 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> 
             @Override
             public void onClick(View view) {
                 CartActivity.cart_items.add(new Purchased(item, 1));
+//                Dbhelper mDbHelper = new Dbhelper(mContext);
+//                // Gets the data repository in write mode
+//                SQLiteDatabase db = mDbHelper.getWritableDatabase();
+//
+//// Create a new map of values, where column names are the keys
+//                ContentValues values = new ContentValues();
+//                values.put(DbContract.Dbentry.COLUMN_NAME_PRODUCT, item.getName());
+//                values.put(DbContract.Dbentry.COLUMN_NAME_QUANTITY, 1);
+//                values.put(DbContract.Dbentry.COLUMN_NAME_PRICE,item.getPrice());
+//                values.put(DbContract.Dbentry.COLUMN_NAME_CANTEEN,item.getCanteen_id());
+//
+//// Insert the new row, returning the primary key value of the new row
+//                long newRowId = db.insert(DbContract.Dbentry.TABLE_NAME, null, values);
 
                 holder.addcart.setVisibility(View.INVISIBLE);
                 holder.addcart.setActivated(false);

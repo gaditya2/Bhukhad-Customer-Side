@@ -20,14 +20,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="24dp" />
 
-            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-
+            <RelativeLayout
                 android:layout_width="320dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:background="@drawable/generalbg"
-                card_view:cardCornerRadius="4dp"
-                card_view:cardElevation="6dp">
+                android:background="@drawable/generalbg">
 
                 <TextView
                     android:id="@+id/card_view_baba"
@@ -65,21 +62,19 @@
                         android:background="@drawable/feedback" />
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+            </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="24dp" />
 
-            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <RelativeLayout
                 android:id="@+id/card_view_vinayak"
                 android:visibility="gone"
                 android:layout_width="320dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:background="@drawable/generalbg"
-                card_view:cardCornerRadius="4dp"
-                card_view:cardElevation="6dp">
+                android:background="@drawable/generalbg">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -114,21 +109,18 @@
                         android:background="@drawable/feedback" />
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+            </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:visibility="gone"
                 android:layout_height="24dp" />
 
-            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-
+            <RelativeLayout
                 android:layout_width="320dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:background="@drawable/generalbg"
-                card_view:cardCornerRadius="4dp"
-                card_view:cardElevation="6dp">
+                android:background="@drawable/generalbg">
 
                 <TextView
                     android:id="@+id/card_view_amul"
@@ -165,7 +157,7 @@
                         android:layout_height="40dp"
                         android:background="@drawable/feedback" />
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -220,14 +212,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="24dp" />
 
-            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-
+            <RelativeLayout
                 android:layout_width="320dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:background="@drawable/generalbg"
-                card_view:cardCornerRadius="4dp"
-                card_view:cardElevation="6dp">
+                android:background="@drawable/generalbg">
 
                 <TextView
                     android:id="@+id/card_view_bazinga"
@@ -264,7 +253,7 @@
                         android:layout_height="40dp"
                         android:background="@drawable/feedback" />
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"

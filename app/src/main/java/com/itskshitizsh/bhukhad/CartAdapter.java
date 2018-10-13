@@ -54,6 +54,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                 Canteen = "Baba";
                 break;
         }
+
         holder.CanteenName.setText(Canteen + "");
         holder.inc_btn.setOnClickListener(new View.OnClickListener() {
             @Override

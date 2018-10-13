@@ -40,7 +40,7 @@ public class CartActivity extends AppCompatActivity {
     static String amulBill = "";
     static String vinayakBill = "";
     private boolean isNetworkConnected = false;
-
+    Dbhelper mDbHelper;
     Order order1, order2, order3, order4, order5;
 
 //    public static double calc_total() {
@@ -51,6 +51,28 @@ public class CartActivity extends AppCompatActivity {
 //        return sum;
 //    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+//        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+//
+//// New value for one column
+//        for (int i = 0; i < cart_items.size(); i++) {
+//            ContentValues values = new ContentValues();
+//            values.put(DbContract.Dbentry.COLUMN_NAME_QUANTITY, cart_items.get(i).getQuantity());
+//
+//// Which row to update, based on the title
+//            String selection = DbContract.Dbentry.COLUMN_NAME_PRODUCT + " LIKE ?";
+//            String[] selectionArgs = {cart_items.get(i).getItem().getName()};
+//
+//            int count = db.update(
+//                    DbContract.Dbentry.TABLE_NAME,
+//                    values,
+//                    selection,
+//                    selectionArgs);
+//        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
