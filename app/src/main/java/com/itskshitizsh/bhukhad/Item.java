@@ -28,7 +28,6 @@ public class Item {
         Name = name;
     }
 
-
     public int getCanteen_id() {
         return canteen_id;
     }

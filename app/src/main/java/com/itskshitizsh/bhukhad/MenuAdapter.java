@@ -1,6 +1,8 @@
 package com.itskshitizsh.bhukhad;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import java.util.List;
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> {
     private Context mContext;
     private List<Item> itemsList;
+    public static Dbhelper mDbHelper;
 
     public MenuAdapter(Context mContext, List<Item> itemsList) {
         this.mContext = mContext;
@@ -31,31 +34,28 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> 
         final Item item = itemsList.get(position);
         //int quantity = Integer.parseInt(String.valueOf(item.getItemQty()));
         holder.nameItem.setText(item.getName());
-        holder.priceItem.setText("\u20b9 " + String.valueOf(item.getPrice()));
+        holder.priceItem.setText("\u20b9 ".concat(String.valueOf(item.getPrice())));
         holder.addcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //On clicking add_to_cart add purchased item to cart_items
                 CartActivity.cart_items.add(new Purchased(item, 1));
-//                Dbhelper mDbHelper = new Dbhelper(mContext);
-//                // Gets the data repository in write mode
-//                SQLiteDatabase db = mDbHelper.getWritableDatabase();
-//
-//// Create a new map of values, where column names are the keys
-//                ContentValues values = new ContentValues();
-//                values.put(DbContract.Dbentry.COLUMN_NAME_PRODUCT, item.getName());
-//                values.put(DbContract.Dbentry.COLUMN_NAME_QUANTITY, 1);
-//                values.put(DbContract.Dbentry.COLUMN_NAME_PRICE,item.getPrice());
-//                values.put(DbContract.Dbentry.COLUMN_NAME_CANTEEN,item.getCanteen_id());
-//
-//// Insert the new row, returning the primary key value of the new row
-//                long newRowId = db.insert(DbContract.Dbentry.TABLE_NAME, null, values);
+                mDbHelper = new Dbhelper(mContext);
+                //Add the items to the database as well
+                SQLiteDatabase db = mDbHelper.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(DbContract.Dbentry.COLUMN_NAME_PRODUCT, item.getName());
+                values.put(DbContract.Dbentry.COLUMN_NAME_CANTEEN, item.getCanteen_id());
+                values.put(DbContract.Dbentry.COLUMN_NAME_PRICE, String.valueOf(item.getPrice()));
+                values.put(DbContract.Dbentry.COLUMN_NAME_QUANTITY, 1);
 
+//// Insert the new row, returning the primary key value of the new row
+                long newRowId = db.insert(DbContract.Dbentry.TABLE_NAME, null, values);
                 holder.addcart.setVisibility(View.INVISIBLE);
                 holder.addcart.setActivated(false);
-                Toast.makeText(mContext, itemsList.get(position).getName() + "added to cart", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, itemsList.get(position).getName() + "Added To Cart", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     @Override
@@ -76,5 +76,4 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> 
             addcart = view.findViewById(R.id.add_to_cart);
         }
     }
-
 }

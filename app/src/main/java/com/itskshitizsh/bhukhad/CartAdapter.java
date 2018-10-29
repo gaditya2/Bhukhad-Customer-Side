@@ -34,7 +34,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull final MyViewHolder holder, int i) {
         final Purchased pur_item = itemsList.get(i);
         holder.name_txt.setText(pur_item.getItem().getName());
-        holder.total.setText(pur_item.getTotal_price() + "");
+        holder.total.setText(String.valueOf(pur_item.getTotal_price()));
         int cant_id = pur_item.getCanteen_id();
         String Canteen = "";
         switch (cant_id) {
@@ -55,7 +55,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                 break;
         }
 
-        holder.CanteenName.setText(Canteen + "");
+        holder.quantity.setText(String.valueOf(pur_item.getQuantity()));
+        holder.CanteenName.setText(Canteen.concat(""));
         holder.inc_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,10 +65,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                     Toast.makeText(mContext, "You can not order more than 50", Toast.LENGTH_SHORT).show();
                 } else {
                     pur_item.setQuantity(new_quan);
-                    holder.quantity.setText(new_quan + " ");
-                    holder.total.setText("\u20b9 " + pur_item.getTotal_price());
-
-
+                    holder.quantity.setText(String.valueOf(new_quan));
+                    holder.total.setText("\u20b9 ".concat(String.valueOf(pur_item.getTotal_price())));
+                    if (new_quan < 3) {
+                        holder.dec_btn.setVisibility(View.VISIBLE);
+                        holder.rem_btn.setVisibility(View.GONE);
+                    }
                 }
             }
 
@@ -77,20 +80,21 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
             public void onClick(View view) {
                 int new_quan = pur_item.getQuantity() - 1;
                 if (new_quan <= 0) {
-                    holder.dec_btn.setVisibility(View.INVISIBLE);
+                    holder.dec_btn.setVisibility(View.GONE);
                     holder.rem_btn.setVisibility(View.VISIBLE);
                 } else {
                     pur_item.setQuantity(new_quan);
-                    holder.quantity.setText(new_quan + "");
-                    holder.total.setText("\u20b9 " + pur_item.getTotal_price());
-
+                    holder.quantity.setText(String.valueOf(new_quan));
+                    holder.total.setText("\u20b9 ".concat(String.valueOf(pur_item.getTotal_price())));
+                    holder.dec_btn.setVisibility(View.VISIBLE);
+                    holder.rem_btn.setVisibility(View.GONE);
                 }
             }
         });
         holder.rem_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(mContext, "This functionality is not yet finished.", Toast.LENGTH_SHORT).show();
             }
         });
 

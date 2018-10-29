@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_bhukkad"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_bhukkad_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -45,6 +45,7 @@
         </activity>
         <activity
             android:name=".HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/startTheme" />
         <activity
             android:name=".FeedbackActivity"
@@ -146,6 +147,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.itskshitizsh.bhukhad.HomeActivity" />
         </activity>
+
+        <service
+            android:name=".ListenOrderNotification"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

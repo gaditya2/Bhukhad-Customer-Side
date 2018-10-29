@@ -174,6 +174,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(HomeActivity.this, CartActivity.class).putExtra("name", name).putExtra("id", rollNo));
             }
         });
+
+        Intent service = new Intent(HomeActivity.this, ListenOrderNotification.class);
+        startService(service);
+
     }
 
 
@@ -190,10 +194,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_profile:
                 startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+                Toast.makeText(this, "Profile Feature is not implemented yet!", Toast.LENGTH_SHORT).show();
                 //finish();
                 break;
             case R.id.nav_settings:
                 startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
+                Toast.makeText(this, "Settings Feature is not implemented yet!", Toast.LENGTH_SHORT).show();
                 //finish();
                 break;
             case R.id.nav_feedback:
@@ -202,7 +208,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
             //  Others!
             case R.id.nav_share:
-                Toast.makeText(getApplicationContext(), "Share", Toast.LENGTH_SHORT).show();
+                Intent waIntent = new Intent(Intent.ACTION_SEND);
+                waIntent.setType("text/plain");
+                String text = "Hey!! Try this app to order food from canteen and save time";
+
+
+                waIntent.setPackage("com.whatsapp");
+
+                waIntent.putExtra(Intent.EXTRA_TEXT, text);
+                startActivity(Intent.createChooser(waIntent, "Share with"));
                 break;
 
             case R.id.nav_contact_us:

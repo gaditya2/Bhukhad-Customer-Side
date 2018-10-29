@@ -16,10 +16,15 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:src="@drawable/bhukkad" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:contentDescription="@string/logo"
-            android:padding="16dp"
-            android:src="@drawable/bhukhad_logo" />
+            android:paddingBottom="16dp"
+            android:src="@drawable/bhukkad_logo" />
 
         <TextView
             android:id="@+id/oneLiner"
@@ -78,7 +83,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="-32dp"
         android:gravity="center_horizontal"
-        android:padding="4dp"
+        android:paddingTop="4dp"
         android:text="@string/proudly_made"
         android:textColor="@android:color/white"
         android:textSize="15sp" />
